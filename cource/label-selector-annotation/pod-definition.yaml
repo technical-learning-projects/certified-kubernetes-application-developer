@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pod
+  labels:
+    app: demo
+    function: backend
+spec:
+  containers:
+    - name: demo-pod-container
+      image: demo-app
+      ports:
+        - containerPort: 8080

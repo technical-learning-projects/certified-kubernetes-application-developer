@@ -1,0 +1,32 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: demo-pod-name
+  labels:
+    name: demo-pod-label-name
+
+spec:
+  containers:
+    - name: demo-pod-container-name
+      image: simple-webapp-color
+      ports:
+        - containerPort: 8080
+      ### Resources ###
+      resources:
+
+        requests:
+          cpu: "2"
+          memory: "4Gi"
+
+        limits:
+          cpu: "4"
+          memory: "6Gi"
+
+### 1G  (Gigabyte) = 1,000,000,000 bytes
+### 1M  (Megabyte) = 1,000,000 bytes
+### 1K  (Kilobyte) = 1,000 bytes
+### 1Gi (Gibibyte) = 1,073,741,824 bytes
+### 1Mi (Mebibyte) = 1,048,576 bytes
+### 1Ki (Kibibyte) = 1,024 bytes

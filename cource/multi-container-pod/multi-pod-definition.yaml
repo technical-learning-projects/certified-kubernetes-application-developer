@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-multi-pod-name
+  labels:
+    name: demo-multi-pod-label
+spec:
+  containers:
+    - name: demo-web-app
+      image: demo-web-app
+      ports:
+        - containerPort: 8080
+    - name: demo-log-agent
+      image: demo-log-agent

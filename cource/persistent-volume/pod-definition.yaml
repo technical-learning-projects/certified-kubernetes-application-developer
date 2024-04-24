@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-persistent-volume
+spec:
+  containers:
+    - name: pod-with-per
+      volumeMounts:
+        - name: demo-volume
+          mountPath: /mount/path
+        - name: demo-volume-claim
+          mountPath: /mount/path
+  volumes:
+    - name: demo-volume
+      hostPath:
+        path: /demo/path
+    - name: demo-persistent-volume-clime
+      persistentVolumeClaim:
+        claimName: demo-persistent-volume-clime

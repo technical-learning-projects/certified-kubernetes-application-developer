@@ -1,0 +1,28 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: simple-web-app-color
+  labels:
+    name: simple-web-app-color-label
+
+spec:
+  containers:
+    - name: simple-web-app-color-container
+      image: simple-webapp-color
+      ports:
+        - containerPort: 8080
+      env:
+        - name: APP_COLOR
+          valueFrom:
+            configMapKeyRef:
+              name: custom-config-map
+              key: APP_COLOR
+      envFrom:
+        - configMapRef:
+            name: custom-config-map
+  volumes:
+    - name: simple-web-app-config-volume
+      configMap:
+        name: custom-config-map

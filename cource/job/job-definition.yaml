@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: demo-job
+spec:
+  parallelism: 3
+  completions: 3
+  backoffLimit: 3
+  template:
+    spec:
+      containers:
+        - name: demo-job-container
+          image: ubuntu
+          command:
+            - "expr"
+            - "3"
+            - "+"
+            - "2"
+      restartPolicy: Never

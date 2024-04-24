@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pod-with-liveness-probe
+spec:
+  containers:
+    - name: demo-with-liveness-probe-container
+      image: nginx
+      ### Liveness ###
+      livenessProbe:
+        tcpSocket:
+          port: 3306
+          host: localhost
+        httpGet:
+          path: /
+          port: 80
+          host: localhost
+        exec:
+          command:
+            - cat
+            - /app/is-healthy
+        initialDelaySeconds: 10
+        failureThreshold: 8
+        periodSeconds: 5
+      ### Readiness ###
+      readinessProbe:
+        tcpSocket:
+          port: 3306
+          host: localhost
+        httpGet:
+          path: /
+          port: 80
+          host: localhost
+        exec:
+          command:
+            - cat
+            - /app/is-healthy
+        initialDelaySeconds: 10
+        failureThreshold: 8
+        periodSeconds: 5

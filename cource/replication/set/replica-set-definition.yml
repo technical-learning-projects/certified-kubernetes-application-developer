@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata:
+  name: "replica-set-name"
+  labels:
+    app: "my-app-label"
+    type: "front-end-label"
+    cost-center-location: "Ukraine"
+
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      type: "front-end-label"
+  template:
+    spec:
+      containers:
+        - name: "nginx-container"
+          image: nginx:alpine-slim
+    metadata:
+      name: "my-app-pod"
+      labels:
+        app: "my-app-label"
+        type: "front-end-label"
+        cost-center-location: "Ukraine"

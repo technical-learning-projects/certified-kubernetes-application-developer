@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: demo-replica-set
+  ### Labels of the replica set itself
+  labels:
+    app: demo
+    function: backend
+  ### Additional information ###
+  annotations:
+    build-version: "1.34"
+    phone-number: "+38 (050) 654-87-98"
+spec:
+  selector:
+    ### Labels to connect replica set with pod
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      ### Labels of the pod
+      labels:
+        app: demo
+        function: backend
+    spec:
+      containers:
+        - name: demo-app-container
+          image: demo-app

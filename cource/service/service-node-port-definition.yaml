@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-node-port-service
+spec:
+  type: NodePort
+  ports:
+      # Service port
+    - port: 80
+      # Pod port (will be the same as port if not specified)
+      targetPort: 80
+      # Range 30000 - 32767
+      nodePort: 30008
+      name: default-port
+  selector:
+    name: demo-pod-label-name

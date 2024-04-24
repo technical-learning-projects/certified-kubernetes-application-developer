@@ -1,0 +1,17 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: ubuntu-sleeper-pod
+
+spec:
+  containers:
+    - name: ubuntu-sleeper-container
+      image: ubuntu-sleeper
+      ### Corresponds to docker entrypoint ###
+      command:
+        - "sleep2.0"
+      ### Corresponds to docker cmd ###
+      args:
+        - "10"

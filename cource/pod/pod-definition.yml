@@ -1,0 +1,30 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: "my-app-pod"
+  labels:
+    ### Custom key value pairs ###
+    app: "my-app-label"
+    type: "front-end-label"
+    cost-center-location: "Ukraine"
+
+spec:
+  containers:
+    - name: "nginx-container-one"
+      image: nginx:alpine-slim
+      ports:
+        - containerPort: 80
+          name: "nginx-one-port"
+          hostIP: 127.0.0.1
+          hostPort: 9090
+          protocol: TCP
+    - name: "nginx-container-two"
+      image: nginx:alpine-slim
+      ports:
+        - containerPort: 80
+          name: "nginx-two-port"
+          hostIP: 127.0.0.1
+          hostPort: 9091
+          protocol: TCP
