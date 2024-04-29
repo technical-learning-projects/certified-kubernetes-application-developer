@@ -4,9 +4,9 @@ metadata:
   name: developer
 rules:
   - apiGroups: [ "" ]
+    verbs: [ "create" ]
+    resources: [ "ConfigMap" ]
+  - apiGroups: [ "" ]
     resources: [ "pods" ]
     resourceNames: [ "blue", "orange" ]
     verbs: [ "list", "get", "create", "update", "delete" ]
-  - apiGroups: [ "" ]
-    verbs: [ "create" ]
-    resources: [ "ConfigMap" ]
