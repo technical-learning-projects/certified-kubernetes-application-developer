@@ -13,8 +13,8 @@ webhooks:
         operations: [ "CREATE" ]
     admissionReviewVersions: [ ]
     clientConfig:
+      caBundle: "Ci0;osi"
       service:
         name: "webhook-service"
         namespace: "webhook-namespace"
-      caBundle: "Ci0;osi"
 #      url: "https://external-server.example.com"
