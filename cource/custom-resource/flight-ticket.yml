@@ -1,0 +1,8 @@
+apiVersion: flights.com/v1
+kind: FlightTicket
+metadata:
+  name: my-flight-ticket
+spec:
+  number: 2
+  to: London
+  form: Mumbai
